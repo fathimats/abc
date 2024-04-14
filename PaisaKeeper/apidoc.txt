@@ -1,0 +1,24 @@
+1)api registering 
+
+    url:localhost:8000/api/register/
+
+    method:post
+
+    data:{username,email,password}
+
+    authentication:nill
+
+    status:pending
+
+2)api listing all expenses 
+
+    url:localhost:8000/api/expenses/
+
+    method:get
+
+    data:nill
+
+    authentication:{username,password}
+
+    status:pending
+

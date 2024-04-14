@@ -16,7 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from budget import views
+from rest_framework.routers import DefaultRouter
+router=DefaultRouter()
+router.register("api/expenses",views.ExpenseViewSetView,basename="expenses")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path("api/register/",views.SignupView.as_view()),
+    path("api/v2/expenses/<int:pk>/",views.ExpenseDetailView.as_view()),
+
+    path("api/v1/income/",views.IncomeListCreateView.as_view()),
+    path("api/v1/income/<int:pk>/",views.IncomeDetailView.as_view()),
+    path("api/v1/summary/",views.TransactionSummaryView.as_view()),
+
+
+
+]+router.urls
